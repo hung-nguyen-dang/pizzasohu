@@ -3,7 +3,7 @@ import Header from '../../components/header';
 import Loading from '../../components/loading-effect';
 import Form from './form';
 import { connect } from 'react-redux';
-import postUser from './service/postUser';
+import postUser from './service/sign-up';
 import { Redirect } from 'react-router-dom';
 import { setMessage } from '../../feature/message/messageSlice';
 import { setUser, reset } from './store/signUpSlice';
@@ -32,7 +32,8 @@ class SignUp extends React.Component {
 
         switch(signUp.code) {
             case 400:
-                dispatch(setMessage("PHONE NUMBER or EMAIL already used."))
+                dispatch(setMessage("PHONE NUMBER or EMAIL already used."));
+                dispatch(reset());
 
                 content = 
                     <div>

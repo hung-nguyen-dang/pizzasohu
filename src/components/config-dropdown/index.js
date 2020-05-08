@@ -22,7 +22,7 @@ class config_dropdown extends React.Component {
         
         return (
             <div className="configuration">
-                <label>Size:    
+                <label>Size
                     <select ref={this.size} value={size.selected} className="dropdown" onChange={() => this.changeSize()}>
                         {size.size.map((sizeTitle, index) => {
                             return <option className="option" key={index} value={index}>
@@ -31,7 +31,7 @@ class config_dropdown extends React.Component {
                     </select>
                 </label>
 
-                <label>Add option:    
+                <label>Add option
                     <select ref={this.option} value={option.selected} onChange={ () => this.changeOption() } className="dropdown">
                         {option.option.map((optionTitle, index) => {
                             return <option className="option" key={index} value={index} >

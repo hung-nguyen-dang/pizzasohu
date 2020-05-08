@@ -41,6 +41,8 @@ const userSlice = createSlice({
         },
 
         sign_out: (state, action) => {
+            window.sessionStorage.removeItem("user");
+            
             return {
                 loading: false,
                 data: undefined,

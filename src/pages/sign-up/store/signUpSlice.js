@@ -40,7 +40,9 @@ const signUpSlice = createSlice({
         reset: (state, action) => {
             return {
                 ...state,
-                code: undefined
+                code: undefined,
+                loading: false,
+                user: undefined
             }
         }
     }

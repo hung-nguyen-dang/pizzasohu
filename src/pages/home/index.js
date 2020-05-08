@@ -47,7 +47,7 @@ class Home extends React.Component {
     render() {
         let content, { currentCategory, currentPage, pageCount, data, loading } = this.props.productList;
 
-        if (loading && data === []) {
+        if (loading) {
             content = <Loading />
         } else {
             content = <div>

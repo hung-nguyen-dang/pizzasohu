@@ -12,10 +12,7 @@ class message_box extends React.Component {
     }
 
     componentDidMount() {
-        this.close.current.addEventListener('click', () => {
-            this.box.current.classList.toggle('active');
-            this.props.dispatch(resetMessage());
-        })
+
 
         window.onclick = (event) => {
             if (event.target === this.box.current) {
@@ -31,7 +28,6 @@ class message_box extends React.Component {
         return (
             <div ref={this.box} className="messageBox">
                 <div className="content">
-                    <span ref={this.close} className="close">&times;</span>
                     <p>{message}</p>
                     <p className="caption" >(Click anywhere to dismiss)</p>
                 </div>

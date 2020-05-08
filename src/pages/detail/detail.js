@@ -39,7 +39,7 @@ class Detail extends React.Component {
             }
                 
             config = <Config sizeChanged={this.sizeChanged} optionChanged={this.optionChanged} 
-                            size={pricing} option={additionalOption}/>
+                            size={pricing} option={additionalOption} />
         } else {
             price = pricing
         }

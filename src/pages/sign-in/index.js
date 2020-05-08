@@ -7,6 +7,7 @@ import sign_in from './services/sign-in';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { setMessage } from '../../feature/message/messageSlice';
+import { reset } from './store/userSlice';
 
 class SignIn extends React.Component {
     signIn = (phoneNumber, password) => {
@@ -31,7 +32,8 @@ class SignIn extends React.Component {
                 break;
             case 401:
                 dispatch(setMessage("Wrong phone number or password."));
-
+                dispatch(reset());
+                
                 content = 
                     <div>
                         <Header />
