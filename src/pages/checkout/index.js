@@ -57,7 +57,6 @@ class Checkout extends React.Component {
                     )
                 case 500:
                     dispatch(setMessage("Your order is not submitted, please try again."));
-                    dispatch(reset());
 
                     return (
                         <div>

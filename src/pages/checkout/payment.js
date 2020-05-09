@@ -140,12 +140,14 @@ class Payment extends React.Component {
 
                                 <div className="inline" >
                                     <div className="block">
-                                        <Field type="month" name="expire" placeholder="Expiration date"/>
+                                        <label>Expiration date:</label>
+                                        <Field type="month" name="expire" />
                                         {errors.expire && touched.expire ? <div className="error">{errors.expire}</div> : null}
                                     </div>
 
                                     <div className="block">
-                                        <Field type="number" name="security" placeholder="Security Code" />
+                                        <label>Security code:</label>
+                                        <Field type="number" name="security" />
                                         {errors.security && touched.security ? <div className="error">{errors.security}</div> : null}
                                     </div>
                                 </div>
