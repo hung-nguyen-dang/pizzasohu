@@ -46,6 +46,15 @@ class SignUpForm extends React.Component {
                 <Formik 
                     initialValues={ initial } 
                     validationSchema={signUpSchema}
+                    validate={(values) => {
+                        const errors = {};
+
+                        if (!/^(03|08|07|05|09|01[2|6|8|9])+([0-9]{8})\b$/.test(values.phoneNumber)) {
+                            errors.phoneNumber = "Invalid phone number."
+                        }
+
+                        return errors;
+                    }}
                     onSubmit={ (data) => {
                         this.props.setUser({
                             "username": data.phoneNumber,

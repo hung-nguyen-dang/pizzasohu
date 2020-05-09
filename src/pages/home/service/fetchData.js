@@ -5,9 +5,9 @@ export default (cat, page, size) => {
     let api;
 
     if (cat === category.all) {
-        api = `https://sohu-pizza-product-service.herokuapp.com/pizza/productcards?size=${size}&page=${page}`;
+        api = `https://sohu-pizza-backend.herokuapp.com/pizza/productcards?size=${size}&page=${page}`;
     } else {
-        api = `https://sohu-pizza-product-service.herokuapp.com/pizza/productcards?category=${cat}&size=${size}&page=${page}`;
+        api = `https://sohu-pizza-backend.herokuapp.com/pizza/productcards?category=${cat}&size=${size}&page=${page}`;
     }
 
     return function(dispatch) {

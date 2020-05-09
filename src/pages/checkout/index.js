@@ -29,6 +29,12 @@ class Checkout extends React.Component {
         this.props.dispatch(setUserInfo(info));
     }
 
+    componentDidUpdate() {
+        if (this.props.order.code !== undefined) {
+            this.props.dispatch(resetOrder());
+        }
+    }
+
     render() {
         let { cart, user, order, dispatch } = this.props;
 
@@ -59,6 +65,19 @@ class Checkout extends React.Component {
                     )
                 case 500:
                     dispatch(setMessage("Your order is not submitted, please try again."));
+
+                    return (
+                        <div>
+                            <Header  />
+                            <Popup submit={this.submit} />
+                            <div className="payment-container">
+                                <Payment paymentInfo={this.paymentInfo} user={user.data} />
+                                <CartSumary cart={cart} />
+                            </div>
+                        </div>
+                    )
+                case 401:
+                    dispatch(setMessage("Invalid credit card."));
 
                     return (
                         <div>

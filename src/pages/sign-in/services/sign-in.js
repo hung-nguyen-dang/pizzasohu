@@ -4,7 +4,7 @@ import axios from 'axios';
 export default (phoneNumber, passWord) => {
     return function(dispatch) {
         dispatch(fetch_request());
-        axios.post('https://sohu-pizza-auth-service.herokuapp.com/pizza/auth/signin', {
+        axios.post('https://sohu-pizza-backend.herokuapp.com/pizza/auth/signin', {
             "username": phoneNumber,
             "password": passWord
         })
