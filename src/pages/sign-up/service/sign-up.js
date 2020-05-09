@@ -4,7 +4,7 @@ import axios from 'axios';
 export default (user) => {
     return function(dispatch) {
         dispatch(fetch_request());
-        axios.post('https://sohu-pizza-backend.herokuapp.com/pizza/auth/signup', {
+        axios.post('https://sohu-pizza-auth-service.herokuapp.com/pizza/auth/signup', {
             ...user,
             "roles": []
         })

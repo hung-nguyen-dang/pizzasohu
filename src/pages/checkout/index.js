@@ -9,6 +9,8 @@ import { Redirect } from 'react-router-dom';
 import { reset } from '../cart/store/cartSlice';
 import CartSumary from './cartSumary';
 import Popup from './popup/index';
+import postOrder from './service/postOrder';
+import Loading from '../../components/loading-effect';
 import './payment.sass';
 
 class Checkout extends React.Component {
@@ -20,27 +22,47 @@ class Checkout extends React.Component {
     }
 
     render() {
-        let { cart, user } = this.props;
+        let { cart, user, order, dispatch } = this.props;
 
         if (user.code !== 200) {
-            this.props.dispatch(setPreviousPage('/checkout'));
-            this.props.dispatch(setMessage("Please sign in with your account first"));
+            dispatch(setPreviousPage('/checkout'));
+            dispatch(setMessage("Please sign in with your account first"));
             return (
                 <Redirect push to='/sign-in' />
             )
         }
-        
-        return (
-            <div>
-                <Header  />
-                <Popup submit={this.submit} />
-                <div className="payment-container">
-                    <Payment user={user.data} placeOrder={this.placeOrder} />
-                    <CartSumary cart={cart} />
+
+        if (order.loading) {
+            return (
+                <div>
+                    <Header />
+                    <Loading />
                 </div>
-                
-            </div>
-        )
+            )
+        } else {
+            switch(order.code) {
+                case 200:
+                    if (order.userID === user.id) {
+                        dispatch(setMessage("Order submitted successful. Thank you!!"));
+                        dispatch(reset());
+                        return (
+                            <Redirect push to='/'/>
+                        )
+                    }
+                    break;
+                default:
+                    return (
+                        <div>
+                            <Header  />
+                            <Popup submit={this.submit} />
+                            <div className="payment-container">
+                                <Payment user={user.data} />
+                                <CartSumary cart={cart} />
+                            </div>
+                        </div>
+                    )
+            }
+        }
     }
     
 }
@@ -53,7 +75,8 @@ Checkout.propTypes = {
 const mapState = state => {
     return {
         cart: state.cart,
-        user: state.user
+        user: state.user,
+        order: state.order
     }
 }
 

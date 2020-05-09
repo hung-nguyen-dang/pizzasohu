@@ -5,6 +5,7 @@ import cartReducer from './pages/cart/store/cartSlice';
 import previousPageReducer from './feature/previousPage/previousPageSlice';
 import signUpReducer from './pages/sign-up/store/signUpSlice';
 import messageReducer from './feature/message/messageSlice';
+import orderReducer from './pages/checkout/store/orderSlice';
 import { configureStore } from '@reduxjs/toolkit';
 
 export default configureStore({
@@ -15,6 +16,7 @@ export default configureStore({
       cart: cartReducer,
       previousPage: previousPageReducer,
       signUp: signUpReducer,
-      message: messageReducer
+      message: messageReducer,
+      order: orderReducer
     }
 })

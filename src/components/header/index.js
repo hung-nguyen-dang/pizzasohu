@@ -50,57 +50,61 @@ class Header extends React.Component {
             content = <div>
                         {message}
                         <header>
-                            <div className="left">
-                                <Link to="/"><img className="logo" src={require("../../assets/images/logo.png")} alt="logo" /></Link>
-                                <Link to="/"><h3 className="name" >PIZZA SOHU</h3></Link>
-                            </div>
+                            <nav>
+                                <div className="left">
+                                    <Link to="/"><img className="logo" src={require("../../assets/images/logo.png")} alt="logo" /></Link>
+                                    <Link to="/"><h3 className="name" >PIZZA SOHU</h3></Link>
+                                </div>
 
-                            <div className="right" ref={this.navRef}>
-                                <Link className="cta" to="/sign-in" onClick={ () => this.setPreviousPage()} >Sign in</Link>
-                                <span>-</span>
-                                <Link  className="cta" to="/sign-up" onClick={ () => this.setPreviousPage()} >Sign up</Link>
-                                <label >Your cart: </label>
-                                <Link to="/cart" onClick={ () => this.setPreviousPage()} >
-                                    <img className="cart" src={require("../../assets/images/supermarket.png")} alt="cart" />
-                                    <div className="counter">
-                                        {cartLength}
-                                    </div>
-                                </Link>
-                            </div>
+                                <div className="right" ref={this.navRef}>
+                                    <Link className="cta" to="/sign-in" onClick={ () => this.setPreviousPage()} >Sign in</Link>
+                                    <span>-</span>
+                                    <Link  className="cta" to="/sign-up" onClick={ () => this.setPreviousPage()} >Sign up</Link>
+                                    <label >Your cart: </label>
+                                    <Link to="/cart" onClick={ () => this.setPreviousPage()} >
+                                        <img className="cart" src={require("../../assets/images/supermarket.png")} alt="cart" />
+                                        <div className="counter">
+                                            {cartLength}
+                                        </div>
+                                    </Link>
+                                </div>
 
-                            <div className="burger" ref={this.burger}>
-                                <div className="line1"></div>
-                                <div className="line2"></div>
-                                <div className="line3"></div>
-                            </div>
+                                <div className="burger" ref={this.burger}>
+                                    <div className="line1"></div>
+                                    <div className="line2"></div>
+                                    <div className="line3"></div>
+                                </div>
+                            </nav>
                         </header>
                     </div>
         } else {
             content = <div>
                         {message}
                         <header>
-                            <div className="left">
-                                <Link to="/"><img className="logo" src={require("../../assets/images/logo.png")} alt="logo" /></Link>
-                                <Link to="/"><h3 className="name" >PIZZA SOHU</h3></Link>
-                            </div>
+                            <nav>
+                                <div className="left">
+                                    <Link to="/"><img className="logo" src={require("../../assets/images/logo.png")} alt="logo" /></Link>
+                                    <Link to="/"><h3 className="name" >PIZZA SOHU</h3></Link>
+                                </div>
 
-                            <div className="right" ref={this.navRef}>
-                                <div className="name">Hello {data.firstName}</div>
-                                <span>-</span>
-                                <Link className="cta" to="#" onClick={this.sign_out}>Sign out</Link>
-                                <label >Your cart: </label>
-                                <Link to="/cart" onClick={ () => this.setPreviousPage()} >
-                                    <img className="cart" src={require("../../assets/images/supermarket.png")} alt="cart" />
-                                    <div className="counter">
-                                        {cartLength}
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="burger" ref={this.burger}>
-                                <div className="line1"></div>
-                                <div className="line2"></div>
-                                <div className="line3"></div>
-                            </div>
+                                <div className="right" ref={this.navRef}>
+                                    <div className="name">Hello {data.firstName}</div>
+                                    <span>-</span>
+                                    <Link className="cta" to="#" onClick={this.sign_out}>Sign out</Link>
+                                    <label >Your cart: </label>
+                                    <Link to="/cart" onClick={ () => this.setPreviousPage()} >
+                                        <img className="cart" src={require("../../assets/images/supermarket.png")} alt="cart" />
+                                        <div className="counter">
+                                            {cartLength}
+                                        </div>
+                                    </Link>
+                                </div>
+                                <div className="burger" ref={this.burger}>
+                                    <div className="line1"></div>
+                                    <div className="line2"></div>
+                                    <div className="line3"></div>
+                                </div>
+                            </nav>
                         </header>
                     </div>
         }

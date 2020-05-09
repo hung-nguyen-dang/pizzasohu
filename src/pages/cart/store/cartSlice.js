@@ -1,7 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-let index = 0;
-
 const cartSlice = createSlice({
     name: 'cart',
     initialState: window.sessionStorage.cart ? JSON.parse(window.sessionStorage.cart) : [],
@@ -35,7 +33,6 @@ const cartSlice = createSlice({
             return [
                 ...newState,
                 {
-                    index: ++index,
                     ...product,
                     quantity: 1,
                 }
@@ -43,30 +40,30 @@ const cartSlice = createSlice({
         },
 
         increaseQuantity: (state, action) => {
-            let index = action.payload;
+            let id = action.payload;
 
             state.forEach( item => {
-                if (item.index === index) {
+                if (item.id === id) {
                     item.quantity++;
                 }
             })
         },
 
         decreaseQuantity: (state, action) => {
-            let index = action.payload;
+            let id = action.payload;
 
             state.forEach( item => {
-                if (item.index === index) {
+                if (item.id === id) {
                     item.quantity--;
                 }
             })
         },
 
         setQuantity: (state, action) => {
-            let { index, quantity } = action.payload;
+            let { id, quantity } = action.payload;
 
             state.forEach( item => {
-                if (item.index === index) {
+                if (item.id === id) {
                     item.quantity = quantity;
                 }
             })
@@ -74,7 +71,7 @@ const cartSlice = createSlice({
 
         removeFromCart: (state, action) => {
             return state.filter( (value) => {
-                return value.index !== action.payload
+                return value.id !== action.payload
             })
         },
 

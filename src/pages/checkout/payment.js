@@ -83,6 +83,7 @@ class Payment extends React.Component {
                     }}
                     onSubmit={( values, { setSubmitting } ) => {
                         setSubmitting(true);
+                        console.log(values);
                         this.confirmation();
                     }} 
             >
@@ -145,8 +146,6 @@ class Payment extends React.Component {
                                         <Field type="number" name="security" placeholder="Security Code" />
                                         {errors.security && touched.security ? <div className="error">{errors.security}</div> : null}
                                     </div>
-                                </div>
-                                <div className="inline">
                                 </div>
                             </div>
                         </div>

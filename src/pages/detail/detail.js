@@ -59,10 +59,9 @@ class Detail extends React.Component {
                             {description}
                         </div>
 
-                        <div className="ingredients">
-                            <b>Ingredients:</b> {ingredients}
-                        </div>
-
+                        {ingredients ?  <div className="ingredients">
+                                            <b>Ingredients:</b> {ingredients}
+                                        </div> : null}
                         
                         {servingSize ?  <div className="serving">
                                             <b>Serving size:</b> {servingSize}

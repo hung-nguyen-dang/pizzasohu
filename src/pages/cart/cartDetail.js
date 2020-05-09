@@ -47,15 +47,15 @@ class CartDetail extends React.Component {
                 }
 
                 inputs.push(
-                    <input id={items[i].index} type="number" 
+                    <input id={items[i].id} type="number" 
                         onChange={ e => setQuantity(parseInt(e.target.id), e.target.value)} 
                         value={items[i].quantity} />
                 )
 
                 content.push(
-                    <tr className="product-row" key={items[i].index}>
+                    <tr className="product-row" key={items[i].id}>
                         <td className="delete">
-                            <img alt="remove" onClick={ () => removeFromCart(items[i].index) } className="trash" src={require(`../../assets/images/trash.png`)}/>
+                            <img alt="remove" onClick={ () => removeFromCart(items[i].id) } className="trash" src={require(`../../assets/images/trash.png`)}/>
                         </td>
                         
                         <td className="image">
@@ -75,13 +75,13 @@ class CartDetail extends React.Component {
                         </td>
 
                         <td className="quantity">
-                            <img alt="plus" className="plus" onClick={ () => increaseQuantity(items[i].index) } src={require(`../../assets/images/plus.png`)}/>
+                            <img alt="plus" className="plus" onClick={ () => increaseQuantity(items[i].id) } src={require(`../../assets/images/plus.png`)}/>
                             
                             {inputs[i]}
 
                             <img alt="minus" className="minus" onClick={ items[i].quantity !== 1 ? 
-                                () => decreaseQuantity(items[i].index) : 
-                                () => removeFromCart(items[i].index) } src={require(`../../assets/images/minus.png`)}/>
+                                () => decreaseQuantity(items[i].id) : 
+                                () => removeFromCart(items[i].id) } src={require(`../../assets/images/minus.png`)}/>
                         </td>
 
                         <td className="price">{`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}`}</td>
@@ -113,7 +113,6 @@ class CartDetail extends React.Component {
 
 CartDetail.propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
-        index: PropTypes.number,
         id: PropTypes.string,
         name: PropTypes.string,
         imageURL: PropTypes.string,
