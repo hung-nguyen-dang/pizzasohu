@@ -32,10 +32,18 @@ export const orderSlice = createSlice({
 
         setUserInfo: (state, action) => {
             state.userInfo = action.payload
+        },
+
+        resetOrder: (state, action) => {
+            return {
+                loading: false,
+                userInfo: undefined,
+                code: undefined
+            }
         }
     }
 })
 
-export const { fetch_failure, fetch_request, fetch_success, setUserInfo } = orderSlice.actions
+export const { fetch_failure, fetch_request, fetch_success, setUserInfo, resetOrder } = orderSlice.actions
 
 export default orderSlice.reducer;

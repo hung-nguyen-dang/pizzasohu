@@ -11,7 +11,7 @@ import CartSumary from './cartSumary';
 import Popup from './popup/index';
 import postOrder from './service/postOrder';
 import Loading from '../../components/loading-effect';
-import { setUserInfo } from './store/orderSlice';
+import { setUserInfo, resetOrder } from './store/orderSlice';
 import './payment.sass';
 
 class Checkout extends React.Component {
@@ -52,6 +52,8 @@ class Checkout extends React.Component {
                 case 201:
                     dispatch(setMessage("Order submitted successful. Thank you!!"));
                     dispatch(reset());
+                    dispatch(resetOrder());
+                    
                     return (
                         <Redirect push to='/'/>
                     )
