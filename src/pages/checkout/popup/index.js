@@ -8,6 +8,11 @@ class Popup extends React.Component {
         popup.style.display = "none"
     }
 
+    submit = () => {
+        this.close()
+        this.props.submit()
+    }
+
     render() {
         return (
             <div className="modal" id="modal-name">
@@ -18,7 +23,7 @@ class Popup extends React.Component {
                     <div className="modal-body">
                         <p>Submit order</p>
                         <br />
-                        <button onClick={ () => this.props.submit()}>Yes</button>
+                        <button onClick={ () => this.submit() }>Yes</button>
                         <button className="no" onClick={ () => this.close() }>No</button>
                     </div>
                 </div>

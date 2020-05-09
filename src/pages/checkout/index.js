@@ -11,14 +11,22 @@ import CartSumary from './cartSumary';
 import Popup from './popup/index';
 import postOrder from './service/postOrder';
 import Loading from '../../components/loading-effect';
+import { setUserInfo } from './store/orderSlice';
 import './payment.sass';
 
 class Checkout extends React.Component {
 
     submit = () => {
-        this.props.dispatch(reset());
-        window.location.replace('/');
-        this.props.dispatch(setMessage("Order submitted successful. Thank you!!"));
+        this.props.dispatch(postOrder({
+            userInfo: {
+                ...this.props.order.userInfo
+            },
+            cartInfo: this.props.cart
+        }))
+    }
+
+    paymentInfo = (info) => {
+        this.props.dispatch(setUserInfo(info));
     }
 
     render() {
@@ -41,22 +49,33 @@ class Checkout extends React.Component {
             )
         } else {
             switch(order.code) {
-                case 200:
-                    if (order.userID === user.id) {
-                        dispatch(setMessage("Order submitted successful. Thank you!!"));
-                        dispatch(reset());
-                        return (
-                            <Redirect push to='/'/>
-                        )
-                    }
-                    break;
+                case 201:
+                    dispatch(setMessage("Order submitted successful. Thank you!!"));
+                    dispatch(reset());
+                    return (
+                        <Redirect push to='/'/>
+                    )
+                case 500:
+                    dispatch(setMessage("Your order is not submitted, please try again."));
+                    dispatch(reset());
+
+                    return (
+                        <div>
+                            <Header  />
+                            <Popup submit={this.submit} />
+                            <div className="payment-container">
+                                <Payment paymentInfo={this.paymentInfo} user={user.data} />
+                                <CartSumary cart={cart} />
+                            </div>
+                        </div>
+                    )
                 default:
                     return (
                         <div>
                             <Header  />
                             <Popup submit={this.submit} />
                             <div className="payment-container">
-                                <Payment user={user.data} />
+                                <Payment paymentInfo={this.paymentInfo} user={user.data} />
                                 <CartSumary cart={cart} />
                             </div>
                         </div>

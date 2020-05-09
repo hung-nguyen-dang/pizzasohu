@@ -4,7 +4,7 @@ export const orderSlice = createSlice({
     name: "order",
     initialState: {
         loading: false,
-        userID: undefined,
+        userInfo: undefined,
         code: undefined
     },
     reducers: {
@@ -15,13 +15,10 @@ export const orderSlice = createSlice({
         },
 
         fetch_success: (state, action) => {
-            let { data, code } = action.payload;
-
             return {
                 ...state,
                 loading: false,
-                userID: action.payload,
-                code: 200
+                code: action.payload
             }
         },
 
@@ -29,12 +26,16 @@ export const orderSlice = createSlice({
             return {
                 ...state,
                 loading: false,
-                code: action.payload.error
+                code: action.payload
             }
         },
+
+        setUserInfo: (state, action) => {
+            state.userInfo = action.payload
+        }
     }
 })
 
-export const { fetch_failure, fetch_request, fetch_success } = orderSlice.actions
+export const { fetch_failure, fetch_request, fetch_success, setUserInfo } = orderSlice.actions
 
 export default orderSlice.reducer;

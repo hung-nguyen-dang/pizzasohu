@@ -83,7 +83,9 @@ class Payment extends React.Component {
                     }}
                     onSubmit={( values, { setSubmitting } ) => {
                         setSubmitting(true);
-                        console.log(values);
+                        this.props.paymentInfo({
+                            ...values
+                        });
                         this.confirmation();
                     }} 
             >
