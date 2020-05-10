@@ -48,10 +48,10 @@ class CartDetail extends React.Component {
 
                 inputs.push(
                     <input id={items[i].id} type="number" 
-                        onChange={ e => setQuantity(parseInt(e.target.id), e.target.value)} 
+                        onChange={ e => setQuantity(e.target.id, e.target.value)} 
                         value={items[i].quantity} />
                 )
-
+                
                 content.push(
                     <tr className="product-row" key={items[i].id}>
                         <td className="delete">

@@ -64,7 +64,7 @@ const cartSlice = createSlice({
 
             state.forEach( item => {
                 if (item.id === id) {
-                    item.quantity = quantity;
+                    item.quantity = parseInt(quantity);
                 }
             })
         },

@@ -15,11 +15,11 @@ class Cart extends React.Component {
     decreaseQuantity = index => {
         this.props.dispatch(decreaseQuantity(index));
         this.props.dispatch(save());
-    }
+    }   
 
-    setQuantity = (index, quantity) => {
+    setQuantity = (id, quantity) => {
         this.props.dispatch(setQuantity({
-            index: index,
+            id: id,
             quantity: quantity
         }));
         this.props.dispatch(save());
