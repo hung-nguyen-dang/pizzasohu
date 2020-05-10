@@ -49,6 +49,9 @@
 
                 &[type=number]
                     -moz-appearance: textfield
+                
+                &:disabled
+                    background-color: white
 
             .error
                 color: red
@@ -117,7 +120,7 @@
                             width: 90%
                             padding: 0
 
-                        input[type=month], input[type=number]
+                        input[type=text], input[type=number]
                             width: 90%
                             height: 40px
                             padding: 5px 5%

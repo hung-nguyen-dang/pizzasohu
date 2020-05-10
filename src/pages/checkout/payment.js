@@ -101,19 +101,19 @@ class Payment extends React.Component {
 
                         <div className="section">
                             <label>Name</label>
-                            <Field type="text" name="name"/>
+                            <Field type="text" disabled name="name"/>
                             {errors.name && touched.name ? <div className="error">{errors.name}</div> : null}
 
                             <label>Email</label>
-                            <Field type="text" name="email"/>
+                            <Field type="text" disabled name="email"/>
                             {errors.email && touched.email ? <div className="error">{errors.email}</div> : null}
 
                             <label>Phone number</label>
-                            <Field type="number" name="phoneNumber"/>
+                            <Field type="number" disabled name="phoneNumber"/>
                             {errors.phoneNumber && touched.phoneNumber ? <div className="error">{errors.phoneNumber}</div> : null}
                             
                             <label>Ship to</label>
-                            <Field type="text" name="address"/>
+                            <Field type="text" disabled name="address"/>
                             {errors.address && touched.address ? <div className="error">{errors.address}</div> : null}
                             
                         </div>
@@ -145,7 +145,7 @@ class Payment extends React.Component {
                                 <div className="inline" >
                                     <div className="block">
                                         <label>Expiration date:</label>
-                                        <Field placeholder="YYYY-MM" type="month" name="expire" />
+                                        <Field placeholder="YYYY-MM" type="text" name="expire" />
                                         {errors.expire && touched.expire ? <div className="error">{errors.expire}</div> : null}
                                     </div>
 

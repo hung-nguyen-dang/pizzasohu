@@ -33,23 +33,20 @@ class CartDetail extends React.Component {
         } 
         else {
             let totalPrice = 0, price = 0, content = [], inputs = [];
-            let { increaseQuantity, decreaseQuantity, setQuantity, removeFromCart } = this.props;
+            let { increaseQuantity, decreaseQuantity, removeFromCart } = this.props;
 
             for (let i = 0; i < items.length; i++) {
                 if (items[i].category !== "PIZZA") {
-                    price = items[i].pricing * items[i].quantity;
-                    totalPrice += price;
+                    price = items[i].pricing;
+                    totalPrice += price * items[i].quantity;
                 } else {
                     price = (items[i].pricing.price[items[i].pricing.selected] 
-                        + items[i].additionalOption.price[items[i].additionalOption.selected]) 
-                        * items[i].quantity;
-                    totalPrice += price;
+                        + items[i].additionalOption.price[items[i].additionalOption.selected]);
+                    totalPrice += price * items[i].quantity;
                 }
 
                 inputs.push(
-                    <input id={items[i].id} type="number" 
-                        onChange={ e => setQuantity(e.target.id, e.target.value)} 
-                        value={items[i].quantity} />
+                    <input id={items[i].id} disabled type="number" value={items[i].quantity} />
                 )
                 
                 content.push(
@@ -84,7 +81,7 @@ class CartDetail extends React.Component {
                                 () => removeFromCart(items[i].id) } src={require(`../../assets/images/minus.png`)}/>
                         </td>
 
-                        <td className="price">{`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}`}</td>
+                        <td className="price">x {`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}`}</td>
                     </tr>
                 )
             };

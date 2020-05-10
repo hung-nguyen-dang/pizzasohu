@@ -45,8 +45,8 @@ class CartSumary extends React.Component {
                                     </td>
                                     <td className="price">
                                         {category === "PIZZA" ?
-                                            pricing.price[pricing.selected] + additionalOption.price[additionalOption.selected]
-                                            : pricing}
+                                        `${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(pricing.price[pricing.selected] + additionalOption.price[additionalOption.selected])}`
+                                        : `${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(pricing)}`}
                                     </td>
                                 </tr>
                             )})}
@@ -56,8 +56,7 @@ class CartSumary extends React.Component {
                 </div>
             
                 <div className="total">
-                    <div>Total: <span>{price}</span></div>
-                    <div className="currentcy">VND</div>
+                    <div>Total: <span>{`${new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(price)}`}</span></div>
                 </div>
             </div>
         }

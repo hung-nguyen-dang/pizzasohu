@@ -42,7 +42,6 @@ const signUpSlice = createSlice({
                 ...state,
                 code: undefined,
                 loading: false,
-                user: undefined
             }
         }
     }
