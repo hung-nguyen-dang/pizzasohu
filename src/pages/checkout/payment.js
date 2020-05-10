@@ -74,6 +74,10 @@ class Payment extends React.Component {
                                 errors.expire = 'Required field'
                             }
 
+                            if (!/^(2\d[2-9]\d-(0[1-9]|1[0-2]))$/.test(values.expire)) {
+                                errors.expire = 'Invalid.'
+                            }
+
                             if (!values.security) {
                                 errors.security = 'Required field'
                             }
@@ -141,7 +145,7 @@ class Payment extends React.Component {
                                 <div className="inline" >
                                     <div className="block">
                                         <label>Expiration date:</label>
-                                        <Field type="month" name="expire" />
+                                        <Field placeholder="YYYY-MM" type="month" name="expire" />
                                         {errors.expire && touched.expire ? <div className="error">{errors.expire}</div> : null}
                                     </div>
 
