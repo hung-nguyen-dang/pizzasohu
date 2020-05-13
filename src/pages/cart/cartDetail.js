@@ -5,18 +5,6 @@ import { Link } from 'react-router-dom';
 
 class CartDetail extends React.Component {
 
-    componentDidMount() {
-        let inputs = document.getElementsByTagName('input');
-        
-        if (inputs.length !== 0) {
-            for (let i = 0; i < inputs.length; i++) {
-                inputs[i].addEventListener('click', () => {
-                    inputs[i].select();
-                })
-            }
-        }
-    }
-
     render() {
         let items = this.props.items;
 
@@ -32,7 +20,7 @@ class CartDetail extends React.Component {
             )
         } 
         else {
-            let totalPrice = 0, price = 0, content = [], inputs = [];
+            let totalPrice = 0, price = 0, content = [];
             let { increaseQuantity, decreaseQuantity, removeFromCart } = this.props;
 
             for (let i = 0; i < items.length; i++) {
@@ -44,10 +32,6 @@ class CartDetail extends React.Component {
                         + items[i].additionalOption.price[items[i].additionalOption.selected]);
                     totalPrice += price * items[i].quantity;
                 }
-
-                inputs.push(
-                    <input id={items[i].id} disabled type="number" value={items[i].quantity} />
-                )
                 
                 content.push(
                     <tr className="product-row" key={items[i].id}>
@@ -74,7 +58,7 @@ class CartDetail extends React.Component {
                         <td className="quantity">
                             <img alt="plus" className="plus" onClick={ () => increaseQuantity(items[i].index) } src={require(`../../assets/images/plus.png`)}/>
                             
-                            {inputs[i]}
+                            <input disabled type="number" value={items[i].quantity} />
 
                             <img alt="minus" className="minus" onClick={ items[i].quantity !== 1 ? 
                                 () => decreaseQuantity(items[i].index) : 

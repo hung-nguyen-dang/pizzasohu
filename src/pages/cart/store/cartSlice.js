@@ -1,10 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-let index = -1;
+export const getNextIndex = (list) => {
+    if (list.length === 0) {
+        return 0;
+    } else {
+        let max = 0;
+
+        list.forEach(item => {
+            if (item.index > max) {
+                max = item.index;
+            }
+        });
+
+        return ++max;
+    }
+}
 
 const cartSlice = createSlice({
     name: 'cart',
-    initialState: window.sessionStorage.cart ? JSON.parse(window.sessionStorage.cart) : [],
+    initialState: window.localStorage.cart ? JSON.parse(window.localStorage.cart) : [],
     reducers: {
         addToCart: (state, action) => {
             let product = action.payload, newState;
@@ -21,7 +35,8 @@ const cartSlice = createSlice({
                             return;
                         } else {
                             // check if size & option are the similar
-                            if (state[i].pricing.selected === product.pricing.selected && state[i].additionalOption.selected === product.additionalOption.selected) {
+                            if (state[i].pricing.selected === product.pricing.selected 
+                                && state[i].additionalOption.selected === product.additionalOption.selected) {
                                 state[i].quantity++;
                                 return;
                             }
@@ -35,8 +50,8 @@ const cartSlice = createSlice({
             return [
                 ...newState,
                 {
+                    index: getNextIndex(state),
                     ...product,
-                    index: ++index,
                     quantity: 1,
                 }
             ]
@@ -47,7 +62,7 @@ const cartSlice = createSlice({
 
             state.forEach( item => {
                 if (item.index === index) {
-                    item.quantity++;
+                    item.quantity += 1;
                 }
             })
         },
@@ -57,7 +72,7 @@ const cartSlice = createSlice({
 
             state.forEach( item => {
                 if (item.index === index) {
-                    item.quantity--;
+                    item.quantity -= 1;
                 }
             })
         },
@@ -79,11 +94,11 @@ const cartSlice = createSlice({
         },
 
         save: (state, action) => {
-            window.sessionStorage.cart = JSON.stringify(state);
+            window.localStorage.cart = JSON.stringify(state);
         },
 
         reset: () => {
-            window.sessionStorage.removeItem("cart");
+            window.localStorage.removeItem("cart");
             return []
         }
     }

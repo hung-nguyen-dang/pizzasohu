@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Popup snapShot 1`] = `
+<div
+  className="modal"
+  id="modal-name"
+>
+  <div
+    className="modal-box"
+  >
+    <div
+      className="modal-header"
+    >
+      <p>
+        Confirmation
+      </p>
+    </div>
+    <div
+      className="modal-body"
+    >
+      <p>
+        Submit order
+      </p>
+      <br />
+      <button
+        onClick={[Function]}
+      >
+        Yes
+      </button>
+      <button
+        className="no"
+        onClick={[Function]}
+      >
+        No
+      </button>
+    </div>
+  </div>
+</div>
+`;

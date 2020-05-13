@@ -38,7 +38,7 @@ class Cart extends React.Component {
                 decreaseQuantity={this.decreaseQuantity}
                 setQuantity={this.setQuantity}
                 removeFromCart={this.removeFromCart}
-                items={this.props.cart}/>
+                items={this.props.cart} />
             </div>
         )
     }

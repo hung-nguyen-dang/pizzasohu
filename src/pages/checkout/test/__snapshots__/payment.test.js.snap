@@ -1,0 +1,166 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot 1`] = `
+<form
+  action="#"
+  className="info"
+  onReset={[Function]}
+  onSubmit={[Function]}
+>
+  <div
+    className="title"
+  >
+    Billing details
+  </div>
+  <div
+    className="section"
+  >
+    <label>
+      Name
+    </label>
+    <input
+      disabled={true}
+      name="name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <label>
+      Email
+    </label>
+    <input
+      disabled={true}
+      name="email"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+    <label>
+      Phone number
+    </label>
+    <input
+      disabled={true}
+      name="phoneNumber"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="number"
+      value=""
+    />
+    <label>
+      Ship to
+    </label>
+    <input
+      disabled={true}
+      name="address"
+      onBlur={[Function]}
+      onChange={[Function]}
+      type="text"
+      value=""
+    />
+  </div>
+  <div
+    className="title"
+  >
+    Payment method
+  </div>
+  <div
+    className="section"
+  >
+    <div
+      className="cod"
+    >
+      <div
+        className="methodTitle"
+      >
+        <input
+          checked={true}
+          name="method"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="radio"
+          value="cod"
+        />
+        <span>
+          COD (default)
+        </span>
+      </div>
+    </div>
+    <div
+      className="creditCard"
+    >
+      <div
+        className="methodTitle"
+      >
+        <input
+          checked={false}
+          name="method"
+          onBlur={[Function]}
+          onChange={[Function]}
+          type="radio"
+          value="creditCard"
+        />
+        <span>
+          Credit card
+        </span>
+      </div>
+      <hr />
+      <input
+        name="cardNumber"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Card number"
+        type="number"
+        value=""
+      />
+      <input
+        name="nameOnCard"
+        onBlur={[Function]}
+        onChange={[Function]}
+        placeholder="Name on card"
+        type="text"
+        value=""
+      />
+      <div
+        className="inline"
+      >
+        <div
+          className="block"
+        >
+          <label>
+            Expiration date:
+          </label>
+          <input
+            name="expire"
+            onBlur={[Function]}
+            onChange={[Function]}
+            placeholder="YYYY-MM"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          className="block"
+        >
+          <label>
+            Security code:
+          </label>
+          <input
+            name="security"
+            onBlur={[Function]}
+            onChange={[Function]}
+            type="number"
+            value=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <button
+    type="submit"
+  >
+    Place order
+  </button>
+</form>
+`;

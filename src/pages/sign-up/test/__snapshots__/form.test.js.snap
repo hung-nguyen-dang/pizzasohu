@@ -1,0 +1,136 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snap shot 1`] = `
+<div
+  className="form-container"
+>
+  <form
+    action="#"
+    onReset={[Function]}
+    onSubmit={[Function]}
+  >
+    <div
+      className="title"
+    >
+      Member sign up
+    </div>
+    <div
+      className="section"
+    >
+      <div
+        className="title"
+      >
+        Personal Information
+      </div>
+      <label>
+        First name:
+      </label>
+      <input
+        name="firstName"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <label>
+        Last name:
+      </label>
+      <input
+        name="lastName"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <label>
+        Birthday:
+      </label>
+      <input
+        name="birthDay"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="date"
+        value=""
+      />
+    </div>
+    <div
+      className="section"
+    >
+      <div
+        className="title"
+      >
+        Contact Information
+      </div>
+      <label>
+        Email:
+      </label>
+      <input
+        name="email"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <label>
+        Phone number: 
+      </label>
+      <input
+        name="phoneNumber"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+      <label>
+        Address:
+      </label>
+      <input
+        name="address"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="section"
+    >
+      <div
+        className="title"
+      >
+        Passwords
+      </div>
+      <label>
+        Password:
+      </label>
+      <input
+        name="password"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+      <label>
+        Re-enter password:
+      </label>
+      <input
+        name="passwordConfirmation"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="password"
+        value=""
+      />
+    </div>
+    <div
+      className="agreement"
+    >
+      By clicking Sign up, you agree to our Terms and Data Policy, including our Cookie Use.
+    </div>
+    <button
+      type="submit"
+    >
+      Sign up
+    </button>
+  </form>
+</div>
+`;
