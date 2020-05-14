@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const userSlice = createSlice({
     name: 'user',
-    initialState: window.sessionStorage.user ? JSON.parse(window.sessionStorage.user) : {
+    initialState: window.localStorage.user ? JSON.parse(window.localStorage.user) : {
         loading: false,
         data: undefined,
         code: undefined
@@ -21,7 +21,7 @@ const userSlice = createSlice({
             state.data = data;
             state.code = code;
             state.loading = false
-            window.sessionStorage.user = JSON.stringify(state);
+            window.localStorage.user = JSON.stringify(state);
         },
 
         fetch_error: (state, action) => {
@@ -41,7 +41,7 @@ const userSlice = createSlice({
         },
 
         sign_out: (state, action) => {
-            window.sessionStorage.removeItem("user");
+            window.localStorage.removeItem("user");
             
             return {
                 loading: false,
