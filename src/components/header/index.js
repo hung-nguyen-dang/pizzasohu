@@ -22,7 +22,8 @@ class Header extends React.Component {
 
     componentDidMount() {
         this.burger.current.addEventListener('click', () => {
-            this.navRef.current.classList.toggle('right-active')
+            this.navRef.current.classList.toggle('right-active');
+            this.burger.current.classList.toggle('burger-active');
         })
     }
 

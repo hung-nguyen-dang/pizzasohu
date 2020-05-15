@@ -61,6 +61,10 @@ class Payment extends React.Component {
                     validate={ (values) => {
                         const errors={};
 
+                        if (!/^(03|08|07|05|09|01[2|6|8|9])+([0-9]{8})\b$/.test(values.phoneNumber)) {
+                            errors.phoneNumber = "Invalid phone number."
+                        }
+
                         if (values.method !== "cod") {
                             if (!values.nameOnCard) {
                                 errors.nameOnCard = 'Required field'
@@ -109,11 +113,11 @@ class Payment extends React.Component {
                             {errors.email && touched.email ? <div className="error">{errors.email}</div> : null}
 
                             <label>Phone number</label>
-                            <Field type="number" disabled name="phoneNumber"/>
+                            <Field type="text" name="phoneNumber"/>
                             {errors.phoneNumber && touched.phoneNumber ? <div className="error">{errors.phoneNumber}</div> : null}
                             
                             <label>Ship to</label>
-                            <Field type="text" disabled name="address"/>
+                            <Field type="text" name="address"/>
                             {errors.address && touched.address ? <div className="error">{errors.address}</div> : null}
                             
                         </div>

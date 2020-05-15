@@ -3,7 +3,7 @@ header
     height: 10vh
     display: flex
     align-items: center
-
+    
     nav
         width: 1050px
         margin: 0 auto
@@ -94,6 +94,7 @@ header
                 height: 3px
                 background-color: white
                 margin: 5px
+                transition: all 0.2s ease
 
 @media screen and (max-width: 1200px)
     header
@@ -114,14 +115,14 @@ header
                 .right
                     position: absolute
                     right: 0px
-                    height: 100%
+                    height: auto
                     top: 10vh
                     background-color: #29b6f6
                     flex-direction: column
                     transform: translateX(100%)
                     pointer-events: none
                     width: 0
-                    padding: 0
+                    padding-bottom: 5%
 
                     .name, .cta, span, label, .cart, .counter
                         display: none
@@ -157,6 +158,14 @@ header
                             display: block
                             margin-top: -30px
                             margin-left: 30px
+                .burger-active
+                    .line1
+                        display: none
+                    .line2
+                        transform: rotate(45deg)
+                        position: fixed
+                    .line3
+                        transform: rotate(135deg)
 
 @media screen and (max-width: 330px)
     body
